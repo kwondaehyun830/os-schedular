@@ -23,4 +23,3 @@ if __name__=='__main__':
     threading.Thread(target=lambda: app.run()).start()
     webview.create_window('OS Scheduler','http://127.0.0.1:5000',width=1200,height=800)
     webview.start()
-
