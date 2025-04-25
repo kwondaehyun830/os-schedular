@@ -1,34 +1,36 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>OS Scheduler</title>
+  <title>OS 스케줄링 시뮬레이터</title>
   <style>
-    body { margin: 0; font-family: sans-serif; }
-    aside { width: 300px; background: #333; color: #fff; padding: 1rem; }
-    main  { flex:1; position: relative; overflow: auto; background: #fafafa; }
-    #chart { position:absolute; top:0; left:0; height:100%; }
-    #marker { position:absolute; width:2px; background:red; z-index:10; }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    textarea { width: 100%; height: 80px; }
+    #controls { margin-bottom: 10px; }
+    #gantt { margin-top: 20px; }
   </style>
 </head>
 <body>
-  <div style="display:flex; height:100vh;">
-    <aside>
-      <h2>프로세스 입력</h2>
-      <label>개수: <input id="count" type="number" min="1" max="4" value="4"/></label>
-      <label>P-코어: <input id="pcores" type="number" min="0" max="4" value="2"/></label>
-      <label>E-코어: <input id="ecores" type="number" min="0" max="4" value="1"/></label>
-      <button id="genButton">Inputs 생성</button>
-      <div id="inputs" style="margin-top:10px;"></div>
-      <button id="runButton" style="margin-top:10px;">FCFS 실행</button>
-    </aside>
-    <main>
-      <div id="chart"></div>
-      <div id="metrics" style="margin-top:20px"></div>
-      <!-- marker는 JS에서 생성 -->
-    </main>
+  <h1>OS 멀티코어 스케줄링</h1>
+
+  <div id="controls">
+    <label for="processes">프로세스 목록 (JSON 배열):</label><br/>
+    <textarea id="processes">[{"pid":"P1","arrival":0,"burst":5}]</textarea><br/>
+
+    <label for="cores">코어 목록 (JSON 배열):</label><br/>
+    <textarea id="cores">[{"id":"E1","type":"E","speed":1,"dyn_power":1,"startup_power":2,"available":0,"state":"off"}]</textarea><br/>
+
+    <label for="algorithm">알고리즘:</label>
+    <select id="algorithm">
+      <option value="fcfs">FCFS</option>
+      <option value="srtn">SRTN</option>
+    </select>
+    <button id="runButton">실행</button>
   </div>
-  <script src="/static/app.js"></script>
+
+  <div id="gantt"></div>
+  <div id="energy"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
