@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*.env
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Webview 번들 등
+static/app.js
+node_modules/
