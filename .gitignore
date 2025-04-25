@@ -11,3 +11,5 @@ __pycache__/
 # Webview 번들 등
 static/app.js
 node_modules/
+
+*.pdf
